@@ -11,7 +11,7 @@ import {
 const GameResultView = props => {
   const {myChoice, apponentChoice, resultMessage, playAgain} = props
   // eslint-disable-next-line no-unused-vars
-  const {id, image} = apponentChoice
+  const {id, imageUrl} = apponentChoice
 
   const onClickPlayAgainButton = () => {
     playAgain()
@@ -26,7 +26,7 @@ const GameResultView = props => {
         </ResultTextImgContainer>
         <ResultTextImgContainer>
           <ResultText>OPPONENT</ResultText>
-          <ResultImageItem src={image} alt="opponent choice" />
+          <ResultImageItem src={imageUrl} alt="opponent choice" />
         </ResultTextImgContainer>
       </ResultImagesContainer>
       <ResultText>{resultMessage}</ResultText>
