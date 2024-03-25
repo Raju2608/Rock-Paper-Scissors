@@ -36,75 +36,75 @@ class Game extends Component {
   onClickPlayAgain = () => this.setState({showResult: false})
 
   onGetResult = () => {
-    const {myChoice, apponentChoice, resultMessage} = this.state
+    const {myChoice, opponentChoice, resultMessage} = this.state
     // eslint-disable-next-line no-unused-vars
-    const {id, image} = apponentChoice
+    const {id, imageUrl} = apponentChoice
     return (
       <GameResultView
         myChoice={myChoice}
-        apponentChoice={apponentChoice}
+        apponentChoice={opponentChoice}
         resultMessage={resultMessage}
         playAgain={this.onClickPlayAgain}
       />
     )
   }
 
-  onGetButtonId = (id, image) => {
+  onGetButtonId = (id, imageUrl) => {
     const {choicesList} = this.props
     const number = Math.floor(Math.random() * choicesList.length)
     if (choicesList[number].id === 'ROCK' && id === 'SCISSORS') {
       this.setState(prevState => ({
         showResult: true,
-        myChoice: [id, image],
-        apponentChoice: choicesList[number],
+        myChoice: [id, imageUrl],
+        opponentChoice: choicesList[number],
         score: prevState.score - 1,
         resultMessage: 'YOU LOSE',
       }))
     } else if (choicesList[number].id === 'ROCK' && id === 'PAPER') {
       this.setState(prevState => ({
         showResult: true,
-        myChoice: [id, image],
-        apponentChoice: choicesList[number],
+        myChoice: [id, imageUrl],
+        opponentChoice: choicesList[number],
         score: prevState.score + 1,
         resultMessage: 'YOU WON',
       }))
     } else if (choicesList[number].id === 'SCISSORS' && id === 'ROCK') {
       this.setState(prevState => ({
         showResult: true,
-        myChoice: [id, image],
-        apponentChoice: choicesList[number],
+        myChoice: [id, imageUrl],
+        opponentChoice: choicesList[number],
         score: prevState.score + 1,
         resultMessage: 'YOU WON',
       }))
     } else if (choicesList[number].id === 'SCISSORS' && id === 'PAPER') {
       this.setState(prevState => ({
         showResult: true,
-        myChoice: [id, image],
-        apponentChoice: choicesList[number],
+        myChoice: [id, imageUrl],
+        opponentChoice: choicesList[number],
         score: prevState.score - 1,
         resultMessage: 'YOU LOSE',
       }))
     } else if (choicesList[number].id === 'PAPER' && id === 'ROCK') {
       this.setState(prevState => ({
         showResult: true,
-        myChoice: [id, image],
-        apponentChoice: choicesList[number],
+        myChoice: [id, imageUrl],
+        opponentChoice: choicesList[number],
         score: prevState.score - 1,
         resultMessage: 'YOU LOSE',
       }))
     } else if (choicesList[number].id === 'PAPER' && id === 'SCISSORS') {
       this.setState(prevState => ({
         showResult: true,
-        myChoice: [id, image],
-        apponentChoice: choicesList[number],
+        myChoice: [id, imageUrl],
+        opponentChoice: choicesList[number],
         score: prevState.score + 1,
         resultMessage: 'YOU WON',
       }))
     } else {
       this.setState({
         showResult: true,
-        myChoice: [id, image],
-        apponentChoice: choicesList[number],
+        myChoice: [id, imageUrl],
+        opponentChoice: choicesList[number],
         resultMessage: 'IT IS DRAW',
       })
     }
@@ -127,7 +127,7 @@ class Game extends Component {
 
   render() {
     // eslint-disable-next-line no-unused-vars
-    const {showResult, score, myChoice, apponentChoice} = this.state
+    const {showResult, score, myChoice, opponentChoice} = this.state
     return (
       <MainContainer>
         <ScoreContainer>
